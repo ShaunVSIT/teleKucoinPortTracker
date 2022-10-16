@@ -9,7 +9,6 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['update'])
 def update_port(message):
-	bot.reply_to(message, "What's good my guy, sned /update to pull port")
+	bot.send_message(message.chat.id, "Portfolio goes here soon")
 
-    
 bot.polling()
