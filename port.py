@@ -22,7 +22,6 @@ fiat_prices = pd.DataFrame(fiat_prices.items(), columns=['currency', 'price'])
 # print(fiat_prices.head(10))
 
 masterDF = all_accounts.merge(fiat_prices, on='currency')
-masterDF = masterDF.reset_index(drop=True)
 masterDF['balance'] = pd.to_numeric(masterDF['balance'])
 masterDF['price'] = pd.to_numeric(masterDF['price'])
 masterDF['value'] = masterDF['balance'] * masterDF['price']
@@ -33,6 +32,6 @@ totalBalance = masterDF['value'].sum()
 
 # print(masterDF.head(10))
 # print(round(totalBalance,2))
-
-print(masterDF.to_string())
+masterDF = masterDF.reset_index(drop=True)
+print(masterDF.to_string(index=False))
 print("\n Total Balance = {}".format(round(totalBalance,2)))
