@@ -9,6 +9,9 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['update'])
 def update_port(message):
-	bot.send_message(message.chat.id, "Portfolio goes here soon")
+	if message.chat.id == keys.chatID1 or keys.chatID2:
+		bot.send_message(message.chat.id, "Portfolio goes here soon")
+	else:
+		bot.send_message(message.chat.id, "sorry buddy, only true degens are allowed here")
 
 bot.polling()
