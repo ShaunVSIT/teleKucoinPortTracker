@@ -44,5 +44,26 @@ def getPort():
 
     return response
 
-def getPrice(ticker):
+def getPrice(ticker = None):
     fiat_prices = market.get_fiat_price()
+    fiat_prices = pd.DataFrame(fiat_prices.items(), columns=['currency', 'price'])
+    # fiat_prices = fiat_prices.reset_index(drop=True)
+    # print(fiat_prices.head(10))
+    # print(ticker)
+    response = ""
+
+    if ticker == None:
+      # print(fiat_prices.head(10))
+      df = fiat_prices[fiat_prices['currency'].isin(['BTC', 'ETH'])]
+      response += tabulate(df, headers=["Currency", "Price"], tablefmt='pretty',showindex=False)
+      return response
+    else:
+      df = fiat_prices[fiat_prices['currency'] == ticker]
+      df = df.reset_index(drop=True)
+      if df.empty:
+        string = f"Price info for {ticker} unavailable."
+        response += string
+        return response
+      else:
+        response += tabulate(df, headers=["Currency", "Price"], tablefmt='pretty',showindex=False)
+        return response
