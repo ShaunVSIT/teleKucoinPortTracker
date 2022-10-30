@@ -44,5 +44,6 @@ def getPort():
 
     return response
 
-res = getPort()
-print(res)
+# res = getPort()
+# print(res)
+
