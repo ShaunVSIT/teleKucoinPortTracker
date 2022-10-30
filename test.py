@@ -1,5 +1,3 @@
-from tarfile import NUL
-from urllib import response
 import constants as keys
 from kucoin.user import user
 from kucoin.market import market
