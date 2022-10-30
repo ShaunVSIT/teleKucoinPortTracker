@@ -44,6 +44,5 @@ def getPort():
 
     return response
 
-# res = getPort()
-# print(res)
-
+def getPrice(ticker):
+    fiat_prices = market.get_fiat_price()
