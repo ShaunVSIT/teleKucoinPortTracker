@@ -13,3 +13,4 @@ api_passphrase = '<<Kucoin API passphrase>>'
 #so i'm the only one who can use the bot
 chatID1 = '<<first acc tele chat ID>>'
 chatID2 = '<<second acc tele chat ID>>'
+
